@@ -21,12 +21,12 @@ class CompletedCourse(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     date_of_completion = models.DateField(
         auto_created=True, blank=False, null=False)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+    student = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
 
 class CurrentUndertakenCourse(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     status = models.CharField(choices=course_status, max_length=20)
     date_of_course_registration = models.DateField(auto_created=True)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+    student = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)

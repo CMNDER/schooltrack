@@ -1,11 +1,9 @@
 from django.contrib.auth.models import User
-from django.db import models
-from .models import Course
 from rest_framework import serializers
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model=User
-        fields = '__all__'
+from django.contrib.auth import authenticate
+from .models import Course
+
+
 class CourseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model=Course
