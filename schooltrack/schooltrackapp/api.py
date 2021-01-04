@@ -9,4 +9,5 @@ class CourseViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         return self.request.user.courses.all()
     def perform_create(self, serializer):
+        print("Here is the request"+ self.request)
         serializer.save(student=self.request.user)
