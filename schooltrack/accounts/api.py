@@ -17,9 +17,8 @@ class RegisterApi(generics.GenericAPIView):
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
             "token": AuthToken.objects.create(user)[1]
         })
+
 # Login API
-
-
 class LoginAPI(generics.GenericAPIView):
     serializer_class = LoginSerializer
 
@@ -31,6 +30,7 @@ class LoginAPI(generics.GenericAPIView):
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
             "token": AuthToken.objects.create(user)[1]
         })
+
 # GET USER API
 class UserApi(generics.RetrieveAPIView):
     permission_classes=[

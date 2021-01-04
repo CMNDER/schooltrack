@@ -1,22 +1,13 @@
-from django.contrib.auth.models import User
-from django.db.models import query
-
-from .models import Course
-from rest_framework import viewsets
-from rest_framework import permissions
-from schooltrackapp.serializers import  CourseSerializer
-from rest_framework import  permissions
-
+from schooltrackapp.models import Course
+from rest_framework import viewsets, permissions
+from .serializers import CourseSerializer
 
 class CourseViewSet(viewsets.ModelViewSet):
-    queryset = Course.objects.all()
+    # queryset = Course.objects.all()
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = CourseSerializer
 
-
-class CurrentCourseViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
-        return self.request.user.currentundertakencourse.all()
-
-    def perform_create(self, serializer):
-        serializer.save()
+        return self.request.user.courses.all()
+    def perform_create(self,serializer):
+        serializer.save(student=self.request.user)
