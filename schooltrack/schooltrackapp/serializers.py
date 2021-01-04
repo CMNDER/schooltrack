@@ -4,9 +4,9 @@ from django.contrib.auth import authenticate
 from .models import Course
 
 # Courses serializer
-
-
-class CourseSerializer(serializers.HyperlinkedModelSerializer):
+class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        fields = ('course_code', 'course_name', 'course_credits','student')
+        fields = '__all__'
+# get user associated with course
+# class UserSerializer(serializers)
