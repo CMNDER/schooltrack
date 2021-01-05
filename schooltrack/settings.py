@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'schooltrack.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'schooltrack',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
+        'NAME': 'd3a7flmaffpehr',
+        'USER': 'epdxjhorzswwtk',
+        'PASSWORD': 'f767206e0e7128477d27f53154986d7a127e8059b5af68bc1a67b3b92e88f7a3',
+        'HOST': 'ec2-3-215-76-208.compute-1.amazonaws.com',
         'PORT': 5432,
     }
 }
